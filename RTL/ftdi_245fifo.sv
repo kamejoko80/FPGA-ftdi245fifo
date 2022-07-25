@@ -63,7 +63,8 @@ wire                        rxfifoo_valid;
 wire                        rxfifoo_ready;
 wire [(8<<RXFIFO_DEXP)-1:0] rxfifoo_data;
 
-enum logic [2:0] {RESET1, RESET2, RXIDLE, RXOE, RXD, TXIDLE, TXD} stat = RESET1;
+typedef enum {RESET1, RESET2, RXIDLE, RXOE, RXD, TXIDLE, TXD} state_t;
+state_t stat = RESET1;
 
 reg                   s_rx_valid = '0;
 reg [(8<<C_DEXP)-1:0] s_rx_data = '0;
